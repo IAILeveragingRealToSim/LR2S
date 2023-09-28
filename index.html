@@ -1,0 +1,617 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<script src="bootstrap.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
+<!---
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+--->
+<script src="load-mathjax.js" async></script>
+
+
+<style type="text/css">
+body {
+    font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 980px){
+    body {
+        width: 980px;
+    }
+}
+
+
+h1 {
+    font-weight:500;
+    line-height: 0.5em;
+    font-size: 5em;
+    font-weight: 500;
+    text-align: center;
+
+}
+
+h2 {
+    font-size: 1.75em;
+    font-weight: 400;
+    margin: 16px 0px 4px 0px;
+    text-align: center;
+}
+a:link,a:visited {
+    color: #5364cc;
+    text-decoration: none;
+}
+a:hover {
+    color: #208799;
+}
+h3 {
+    text-align: left;
+}
+
+
+
+h3 {
+    font-weight: 600;
+    margin: 16px 0px 4px 0px;
+}
+
+.paper-title {
+    padding: 1px 0px 1px 0px;
+}
+section {
+    margin: 32px 0px 32px 0px;
+    text-align: justify;
+    clear: both;
+}
+.col-5 {
+     width: 20%;
+     float: left;
+}
+
+.move-down {
+    margin-top:1.2cm;
+}
+
+.col-4 {
+     width: 25%;
+     float: left;
+}
+.col-3 {
+     width: 33%;
+     float: left;
+}
+.col-2 {
+     width: 50%;
+     float: left;
+}
+.col-1 {
+     width: 100%;
+     float: left;
+}
+
+.author-row, .affil-row {
+    font-size: 26px;
+}
+
+.author-row-new { 
+    text-align: center; 
+}
+
+.author-row-new a {
+    display: inline-block;
+    font-size: 20px;
+    padding: 4px;
+}
+
+.author-row-new sup {
+    color: #313436;
+    font-size: 12px;
+}
+
+.affiliations-new {
+    font-size: 18px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.row {
+    margin: 16px 0px 16px 0px;
+}
+.authors {
+    font-size: 26px;
+}
+.affiliatons {
+    font-size: 18px;
+}
+.affil-row {
+    margin-top: 18px;
+}
+.teaser {
+    max-width: 100%;
+}
+.text-center {
+    text-align: center;  
+}
+.screenshot {
+    width: 256px;
+    border: 1px solid #ddd;
+}
+.screenshot-el {
+    margin-bottom: 16px;
+}
+hr {
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid #ddd;
+    margin: 0;
+}
+.material-icons {
+    vertical-align: -6px;
+}
+p {
+    line-height: 1.25em;
+}
+.caption {
+    font-size: 16px;
+    color: #666;
+    margin-top: 4px;
+    margin-bottom: 10px;
+	text-align: left;
+}
+
+
+video {
+    display: block;
+    margin: auto;
+}
+
+
+figure {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#bibtex pre {
+    font-size: 14px;
+    background-color: #eee;
+    padding: 16px;
+}
+.blue {
+    color: #2c82c9;
+    font-weight: bold;
+}
+.orange {
+    color: #d35400;
+    font-weight: bold;
+}
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.paper-btn-coming-soon {
+    position: relative; 
+    top: 0;
+    left: 0;
+}
+
+.coming-soon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+}
+
+.center {
+  margin-left: 10.0%;
+  margin-right: 10.0%;
+}
+
+.center-image {
+  display: block;
+  margin-left: -33%;
+}
+
+.paper-btn {
+  position: relative;
+  text-align: center;
+
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 8px;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  
+  background-color: #5364cc;
+  color: white !important;
+  font-size: 20px;
+  width: 100px;
+  font-weight: 600;
+}
+.paper-btn-parent {
+    display: flex;
+    justify-content: center;
+    margin: 16px 0px;
+}
+
+.paper-btn:hover {
+    opacity: 0.85;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.venue {
+    font-size: 23px;
+}
+
+.topnav {
+    background-color: #EEEEEE;
+    overflow: hidden;
+}
+
+.topnav div {
+    max-width: 1070px;
+    margin: 0 auto;
+}
+
+.topnav a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    vertical-align: middle;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.topnav img {
+    padding: 2px 0px;
+    width: 100%;
+    margin: 0.2em 0px 0.3em 0px;
+    vertical-align: middle;
+}
+
+pre {
+    font-size: 0.9em;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 3px;
+    background-color: rgb(235, 235, 235);
+    overflow-x: auto;
+}
+
+.download-thumb {
+    display: flex;
+}
+
+@media only screen and (max-width: 620px) {
+    .download-thumb {
+        display: none;
+    }
+}
+
+.paper-stuff {
+    width: 50%;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 620px) {
+    .paper-stuff {
+        width: 100%;
+    }
+}
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  text-align: center;
+  float: left;
+  width: 16.666%;
+  padding: 5px;
+}
+.column3 {
+  text-align: center;
+  float: left;
+  width: 33.333%;
+  padding: 5px;
+}
+.column4 {
+  text-align: center;
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+.column5 {
+  text-align: center;
+  float: left;
+  width: 20%;
+  padding: 5px;
+}
+.column10 {
+  text-align: center;
+  float: left;
+  width: 10%;
+  padding: 5px;
+}
+.border-right {
+    border-right: 1px solid black;
+}
+.border-bottom{
+    border-bottom: 1px solid black;
+}
+
+
+.row-center {
+    margin: 16px 0px 16px 0px;
+    text-align: center;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.figure-img {
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+
+
+
+
+
+
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+
+
+
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+  .column {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .column3 {
+    width: 100%;
+  }
+}
+
+</style>
+<link rel="stylesheet" href="bootstrap-grid.css">
+
+<script type="text/javascript" src="../js/hidebib.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+    <head>
+        <title> LR2S: Leveraging Real to Sim for Crowdsourcing Policy Learning</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:description" content="LR2S: Leveraging Real to Sim for Crowdsourcing Policy Learning"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:creator" content="@marceltornev">
+        <meta name="twitter:title" content="LR2S: Leveraging Real to Sim for Crowdsourcing Policy Learning">
+        <meta name="twitter:description" content="">
+        <meta name="twitter:image" content="">
+    </head>
+
+ <body>
+
+
+<div class="container">
+    <div class="paper-title">
+    <h1> 
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400" style="background:linear-gradient(270deg, #449BF6 0%, #5765DA 25%, #984FB6 50%, #D45098 75%, #E85E51 100%);background-size:cover;background-repeat:no-repeat;background-position:center;-webkit-background-clip:text;-webkit-text-fill-color:transparent">
+        LR2S
+        </span>
+    </h1>
+
+    <h2> 
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-teal-400" style="background:linear-gradient(270deg, #449BF6 0%, #5765DA 25%, #984FB6 50%, #D45098 75%, #E85E51 100%);background-size:cover;background-repeat:no-repeat;background-position:center;-webkit-background-clip:text;-webkit-text-fill-color:transparent">
+        Leveraging Real to Sim for Crowdsourcing Policy Learning
+        </span>
+    </h2>
+        
+    </div>
+    <br><br>
+    <div id="authors">
+        <center>
+            <div class="author-row-new">
+                <a href="https://marceltorne.github.io/">Marcel Torne<sup>1</sup></a>,
+                <a href="https://abhishekunique.github.io">Abhishek Gupta<sup>2</sup></a>,
+                <a href="https://people.eecs.berkeley.edu/~pulkitag/">Pulkit Agrawal<sup>1</sup></a>
+
+            </div>
+        </center>
+        <center>
+        <div class="affiliations">
+            <span><sup>1</sup> Massachusetts Institute of Technology </span>
+            <span><sup>2</sup> University of Washington</span>
+        </div>
+
+        <div class="affil-row">
+            <div class="venue text-center"><b>Comming soon end of 2023 </b></div>
+        </div>
+
+        </center>
+
+        <!-- <div style="clear: both">
+            <div class="paper-btn-parent">
+            <a class="paper-btn" href="https://arxiv.org/abs/2307.11049">
+                <span class="material-icons"> description </span> 
+                 Paper
+            </a>
+            <a class="paper-btn" href="https://github.com/Improbable-AI/human-guided-exploration">
+                <span class="material-icons"> code </span>
+                Code
+            </a>
+            </div>
+        </div> -->
+    </div>
+
+        
+    <img src="material/LR2Steaser.png" width="150%" class="center-image"></img>
+            
+
+    
+    <section id="abstract"/>
+        <h2>Abstract</h2>
+        <div class="flex-row">
+            <p>
+                TODO: explain motivation and idea
+            </p>
+        </div>
+    </section>
+    <section id="method"/>
+        <hr>
+        <h3>API for easily generation of environments</h3>
+            Our new interface allows non-expert users to easily create new diverse and realistic scenes, using either the large variety of 3D objects available online or taking a video of the real object or real world environment.
+            This interface allows the users to cut meshes, add joints, add sites, move objects around, rotate them, and finally export as a USD file that can then be directly imported in the simulator as a standard gym environment without any engineering assistance.
+
+            <h4>Generation of environments using objects from Objaverse-XL</h4>
+            <img src="material/genenv-02.png" width="100%">
+
+            <h4>Generation of environments using 3D scans from videos</h4>
+            <img src="material/genenv_Mesa de trabajo 1.png" width="100%">
+
+        
+    </section>
+
+
+    <section id="results">
+        <hr>
+        <h2>Policy Learning</h2>
+        <figure>
+            <a>
+                <img width="100%" src="materials/website_figures_real_robot.png">
+            </a>
+            <p class="caption">
+                Accomplished goals at the end of 5 different evaluation episodes along training in the real world.
+            </p> <br>
+        </figure>
+        
+        
+    </section> 
+    
+    <section id="robust_noise">
+        <hr>
+        <h2>Sim to real transfer</h2>
+        <center>
+
+
+    </section>
+
+
+    <!--
+    <section id="paper">
+
+        <h2>Team</h2>        
+        <div class="row">
+            <div class="column5">
+                <a href='https://marceltorne.github.io/'>
+                    <img  src=./materials/people/marcel.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
+                </a>
+                <p class=profname> Marcel Torne Villasevil </p>
+                <p class=institution>Harvard University, MIT</p>
+            </div>
+
+            <div class="column5">
+                <a href=''>
+                    <img  src=./materials/people/max.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
+                </a>
+                <p class=profname> Max Balsells i Pamies </p>
+                <p class=institution>University of Washington</p>
+            </div>
+
+            <div class="column5">
+                <a href='https://taochenshh.github.io'>
+                    <img  src=./materials/people/tao.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
+                </a>
+                <p class=profname> Tao Chen </p>
+                <p class=institution>MIT</p>
+            </div>
+            <div class="column5">
+                <a href='https://people.eecs.berkeley.edu/~pulkitag/'>
+                    <img  src=./materials/people/pulkit.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
+                </a>
+                <p class=profname> Pulkit Agrawal </p>
+                <p class=institution>MIT</p>
+            </div>
+
+
+
+            <center>
+                <div class="column0">
+                    <a href="https://abhishekunique.github.io">
+                        <img src=./materials/people/abhishek.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
+                    </a>
+                    <p class=profname> Abhishek Gupta </p>
+                    <p class=institution>University of Washington</p>
+                </div>
+
+                <div class="column0">
+                    <a href='https://people.eecs.berkeley.edu/~pulkitag/'>
+                        <img  src=./materials/people/pulkit.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
+                    </a>
+                    <p class=profname> Pulkit Agrawal </p>
+                    <p class=institution>MIT</p>
+                </div>
+    
+                <div class="column0">
+                    <a href="https://abhishekunique.github.io">
+                        <img src=./materials/people/abhishek.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
+                    </a>
+                    <p class=profname> Abhishek Gupta </p>
+                    <p class=institution>University of Washington</p>
+                </div>
+
+            </center>
+
+         </div>
+
+    </section>
+
+
+
+    -->
+
+   
+    <!-- <section>
+        This webpage template was recycled from <a href='https://nv-tlabs.github.io/LION/'>here</a>.
+    </section>
+     -->
+
+
+</div>
+</body>
+</html>
