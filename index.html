@@ -381,7 +381,14 @@ pre {
 }
 
 
-
+.sidebyside{
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: 50% auto;
+    margin-bottom: 40px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
 
 
 
@@ -462,7 +469,9 @@ pre {
         <div class="affil-row">
             <div class="venue text-center"><b>Comming soon end of 2023 </b></div>
         </div>
-
+        <div class="affil-row">
+            <div class="venue text-center"><b>DISCLAIMER:</b> This project is still under development and is not ready to be shared with the community yet. This website has been created to present the work I have been doing and get some conversations started with you about the potential, strengths, and flaws, that this approach has.</div>
+        </div>
         </center>
 
         <!-- <div style="clear: both">
@@ -484,53 +493,82 @@ pre {
             
 
     
-    <section id="abstract"/>
-        <h2>Abstract</h2>
+    <section id="abstract">
+        <h2>Motivation and Idea</h2>
         <div class="flex-row">
             <p>
-                TODO: explain motivation and idea
+                There is a latest surge in learning from demonstrations in the real world with some new impressive teleoperation systems. 
+                Even though this approach is proving to be very effective, it has two main flaws, scalabilty and generalization. The first problem is that if we want our robots to be capable of achieving a large variety of tasks, 
+                we will need to collect a lot of data but this approach is limited because of the need for real hardware and being present in the room where the hardware is, hence at this point, 
+                there are little signs of being able to crowdsource the data collection with these real-world teleoperation platforms. Furthermore, if we want the policies to generalize to changes in the scene configuration, 
+                different objects, the amount of data we will need to collect is much larger. We propose to study whether it is possible to do the data collection on the simulation if we have a realistic simulation of the real world. 
+                This would directly enable crowdsourcing, but also easier ways of providing demos, as through key poses. Furthermore, access to a simulator makes the possibility for randomizing the environment much easier, without additional human effort. 
+                We are aware of the problems with the simulators, there is a real to sim gap and a sim to real gap that are non-insignificant, however, we want to study whether both of these gaps can be closed with non-expert human help on the real to sim gap, 
+                by providing an easy to use interface that allows anyone to setup a realistic scene, with correct physics and articulations. and by doing enough randomization during the policy learning to close the sim to real gap. The answer remains unknown 
+                but as you will see on this page, we have some signs of life ! :)
             </p>
         </div>
     </section>
     <section id="method"/>
         <hr>
-        <h3>API for easily generation of environments</h3>
+        <h2>API for easily generation of environments</h3>
             Our new interface allows non-expert users to easily create new diverse and realistic scenes, using either the large variety of 3D objects available online or taking a video of the real object or real world environment.
             This interface allows the users to cut meshes, add joints, add sites, move objects around, rotate them, and finally export as a USD file that can then be directly imported in the simulator as a standard gym environment without any engineering assistance.
 
-            <h4>Generation of environments using objects from Objaverse-XL</h4>
+            <h3>Generation of environments using objects from Objaverse-XL</h4>
             <img src="material/genenv-02.png" width="100%">
 
-            <h4>Generation of environments using 3D scans from videos</h4>
+            <h3>Generation of environments using 3D scans from videos</h4>
             <img src="material/genenv_Mesa de trabajo 1.png" width="100%">
 
         
     </section>
 
 
-    <section id="results">
+    <section id="policy-learning">
         <hr>
         <h2>Policy Learning</h2>
-        <figure>
-            <a>
-                <img width="100%" src="materials/website_figures_real_robot.png">
-            </a>
-            <p class="caption">
-                Accomplished goals at the end of 5 different evaluation episodes along training in the real world.
-            </p> <br>
-        </figure>
-        
+        <div class="sidebyside">
+            <figure>
+                <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
+                    <source src="material/opendrawer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
+            <figure>
+                <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
+                    <source src="material/pickplacemug.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
+
+        </div>
+
+
+        We learn teacher policies from non-expert human demonstrations. All of the results have been achieved by providing demonstrations that control the full movement of the end effector. However, we can leverage the simulator by providing new and easier types of demonstrations for anyone to give. For example, we are developping a new capability in our interface that will allow the user to only set some key target poses as demonstrations and the full movement will be obtained using motion planning to follow these key poses.
+        We are excited to explore more types of demonstrations as for example object-centric demonstrations, where the user only interacts with the objects and specifies where each object should go as a demonstration. 
         
     </section> 
     
-    <section id="robust_noise">
+    <section id="simtoreal">
         <hr>
         <h2>Sim to real transfer</h2>
-        <center>
+        <figure>
+            <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
+                <source src="material/TODO.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </figure>
 
+        Once the teacher policies have been trained on the simulator from state space, we can distill them into a student policy that takes as input pointclouds. After doing augmentation and randomizations on the pointclouds, camera positions and robot positions, we can transfer the policy to the real world successfully. 
 
     </section>
 
+    <section>
+        <hr>
+        <h2>Next steps</h2>
+        As we have seen on the results above we transfered a successful pick policy, from a real scan of the a real scene to the real world by providing demonstrations in sim. But this is just the beginning we are training on more varied tasks, we are making the pipeline faster, and we hope to show the benefits of training on the simulator by making the learned policies much more robust than if we provided the same number of demonstrations in the real world. 
+    </section>
 
     <!--
     <section id="paper">
