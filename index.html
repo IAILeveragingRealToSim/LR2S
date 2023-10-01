@@ -497,15 +497,15 @@ pre {
         <h2>Motivation and Idea</h2>
         <div class="flex-row">
             <p>
-                There is a latest surge in learning from demonstrations in the real world with some new impressive teleoperation systems. 
-                Even though this approach is proving to be very effective, it has two main flaws, scalabilty and generalization. The first problem is that if we want our robots to be execute a large variety of tasks, 
+                Learning from demonstrations in the real world using some new impressive teleoperation systems has achieved very impressive results over the last months. 
+                Even though this approach is proving to be very effective, it has two main flaws, scalability and generalization. The first problem is that if we want our robots to execute a large variety of tasks, 
                 we will need to collect a lot of data. However, this approach is limiting because of the need for real hardware and the necessity of the demonstrator to be present in the room where the hardware is located.
-                Thereafter, as it is now, we don't thin we would be able to crowdsource the data collection with these real-world teleoperation platforms. Furthermore, if we want the policies to generalize to changes in the scene configuration, 
-                different objects, the amount of data we will need to collect is much larger, which is another limiting factor. We propose to study whether it is possible to do the data collection on the simulation leveraging a realistic simulation of the real world. 
-                This would directly enable large scale crowdsourcing, but also easier ways of providing demos, as through setting key end effector poses among others. Moreover, having access to a simulator allows us to augment the demonstrations by randomizing the environment much more easily, without additional human effort. 
-                We are aware of the problems with the simulators, there is a real to sim gap and a sim to real gap that are non-insignificant. Nevertheless, we believe there are clear benefits so that this question should be studied. In this project we are studying whether both of these gaps can be narrowed. Regarding the real to sim gap, we leverage non-expert human help, 
-                by providing an easy to use interface that allows anyone to setup a realistic scene, with correct physics and articulations. The sim to real gap will be tackled through previously seen techniques in randomization during the policy learning stage. 
-                The answer to whether we will be able to provide demos in a simulated environment and obtain a robust policy in the real world remains unknown but as you will see on this page, we have some very exciting signs of life ! :)
+                Thereafter, as it is now, we don't think we would be able to crowdsource the data collection with these real-world teleoperation platforms. Furthermore, if we want the policies to generalize to changes in the scene configuration 
+                and different objects, the amount of data we will need to collect is much larger, which is another limiting factor. We propose to study whether it is possible to do the data collection on the simulation leveraging a realistic simulation of the real world. 
+                This would directly enable large-scale crowdsourcing, but also easier ways of providing demos, such as through setting key end effector poses among others. Moreover, having access to a simulator allows us to augment the demonstrations by randomizing the environment much more easily, without additional human effort. 
+                We are aware of the problems with the simulators, there is a real-to-sim gap and a sim-to-real gap that are non-insignificant. Nevertheless, we believe there are clear benefits that justify the study of this question. In this project, we are studying whether both of these gaps can be narrowed. Regarding the real-to-sim gap, we leverage non-expert human help, 
+                by providing an easy-to-use interface that allows anyone to set up a realistic scene, with correct physics and articulations. The sim-to-real gap will be tackled through previously seen techniques in randomization during the policy learning stage. 
+                The answer to whether we will be able to provide demos in a simulated environment and obtain a robust policy in the real world remains unknown but as you will see on this page, we have some very exciting signs of life! :)
             </p>
         </div>
     </section>
@@ -545,8 +545,9 @@ pre {
         </div>
 
 
-        We learn teacher policies from non-expert human demonstrations. All of the results have been achieved by providing demonstrations that control the full movement of the end effector. However, we can leverage the simulator by providing new and easier types of demonstrations for anyone to give. For example, we are developping a new capability in our interface that will allow the user to only set some key target poses as demonstrations and the full movement will be obtained using motion planning to follow these key poses.
-        We are excited to explore more types of demonstrations as for example object-centric demonstrations, where the user only interacts with the objects and specifies where each object should go as a demonstration. The goal is to make the process of giving demonstrations as easy as possible to any non-expert human demonstrator and be able to generate as much data as possible from these annotations.
+
+        We learn teacher policies from non-expert human demonstrations. All of the results have been achieved by providing demonstrations that control the full movement of the end effector. However, we can leverage the simulator by providing new and easier types of demonstrations for anyone to give. For example, we are developing a new capability in our interface that will allow the user to only set some key target poses as demonstrations and the full movement will be obtained using motion planning to follow these key poses.
+        We are excited to explore more types of demonstrations, for example, object-centric demonstrations, where the user only interacts with the objects and specifies where each object should go as a demonstration. The goal is to make the process of giving demonstrations as easy as possible to any non-expert human demonstrator and be able to generate as much data as possible from these annotations.
         
     </section> 
     
@@ -560,14 +561,13 @@ pre {
             </video>
         </figure>
 
-        Once the teacher policies have been trained on the simulator from state space, we distill them into a student policy that takes as input pointclouds. After doing augmentation and randomizations on the pointclouds, camera positions and robot positions, we can transfer the policy to the real world successfully. 
-
+        Once the teacher policies have been trained on the simulator from state space, we distill them into a student policy that takes as input pointclouds. After doing augmentation and randomizations on the pointclouds, camera positions, and robot positions, we can transfer the policy to the real world successfully. 
     </section>
 
     <section>
         <hr>
         <h2>Next steps</h2>
-        As we have seen on the results above we transfered a successful pick policy, from a real scan of the a real scene to the real world by providing demonstrations in sim. However, this is just the beginning, we are expanding the variety of tasks and making the pipeline faster for any non-expert human to use. We believe we will be able to show the benefits of training on the realistic simulator by making the learned policies much more robust than if we provided the same number of demonstrations in the real world. 
+        As we have seen in the results above we transferred a successful pick policy, from a real scan of the real scene to the real world by providing demonstrations in sim. However, this is just the beginning, we are expanding the variety of tasks and making the pipeline faster for any non-expert human to use. We believe we will be able to show the benefits of training on the realistic simulator by making the learned policies much more robust than if we provided the same number of demonstrations in the real world. 
     </section>
 
     <!--
