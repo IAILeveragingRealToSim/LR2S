@@ -554,12 +554,22 @@ pre {
     <section id="simtoreal">
         <hr>
         <h2>Sim to real transfer</h2>
-        <figure>
-            <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
-                <source src="material/robotpickmug.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </figure>
+        <div class="sidebyside">
+            <figure>
+                <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
+                    <source src="material/opendrawerfranka.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
+            <figure>
+                <video class="centered" width="100%" autoplay loop muted playsinline class="video-background " >
+                    <source src="material/robotpickmug.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
+
+        </div>
+
 
         Once the teacher policies have been trained on the simulator from state space, we distill them into a student policy that takes as input pointclouds. After doing augmentation and randomizations on the pointclouds, camera positions, and robot positions, we can transfer the policy to the real world successfully. 
     </section>
